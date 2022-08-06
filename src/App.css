@@ -5,21 +5,5 @@
   font-family: 'Comic Neue', cursive;
 }
 
-.app__container-logo{
-  width: 100%;
-  text-align: center;
-}
 
-.app__logo{
-  height: 250px;
-}
-
-.app__container-main{
-  margin: 0 30px;
-}
-
-.main__title{
-  font-size: 35px;
-  font-weight: bold;
-}
 
