@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import logoMarvel from '../images/logo-marvel.png';
+import escudo from '../images/Escudo_Capitán_América.png';
+import martillo from '../images/Martillo_Thor.png';
 import '../stylesheets/ListComics.css';
 import ComicCard from './ComicCard';
 import { getAllCommits } from '../connection/funcion.js';
@@ -18,6 +20,8 @@ function ListComics(){
     <div>
       <section className='app__container-logo'>
         <img src={logoMarvel} alt='Logo marvel' className='app__logo' />
+        <img src={escudo} alt='Logo marvel' className='img-escudo animateI' />
+        <img src={martillo} alt='Logo marvel' className='img-martillo animateI' />
       </section>
       
       <section className='app__container-main'>
