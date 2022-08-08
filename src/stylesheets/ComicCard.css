@@ -1,0 +1,51 @@
+
+.container__comic{
+  background-color: rgb(14, 49, 124);
+  width: 500px;
+  height: 250px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow .3s;
+  margin-left: 80px;
+}
+
+.container__comic:hover{
+  box-shadow: 5px 5px 30px 1px rgb(112, 112, 112);
+}
+
+.container__comic .img{
+  width: 160px;
+  height: 200px;
+  background-color: black;
+}
+
+.title-btn{
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.title-btn .title-comic{
+  font-size: 28px;
+  color: #fff;
+}
+
+.title-btn .btn{
+  width: 60%;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+  transition: color .2s, text-decoration .2s;
+}
+
+.title-btn .btn:hover{
+  color: rgb(155, 155, 155);
+  text-decoration: underline;
+}
