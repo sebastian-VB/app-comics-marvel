@@ -35,6 +35,7 @@ function ListComics(){
                   <ComicCard 
                     title={comic.title} 
                     poster={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                    id={comic.id}
                   />
                 </div>
               ))

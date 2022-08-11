@@ -9,7 +9,7 @@ function ComicCard ({ title, poster, id }){
       <img className='img' src={poster} alt='Poster del comic' />
       <div className='title-btn'>
         <h2 className='title-comic'>{title}</h2>
-        <a href='#' className='btn'>ver más</a>
+        <a href={`/comic/${id}`} className='btn'>ver más</a>
       </div>
     </div>
   );
