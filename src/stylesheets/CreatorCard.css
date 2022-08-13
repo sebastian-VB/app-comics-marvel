@@ -1,0 +1,13 @@
+
+.creator-card{
+  width: 250px;
+  height: 100px;
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.creator{
+  font-size: 25px;
+}

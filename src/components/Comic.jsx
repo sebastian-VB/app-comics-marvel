@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOnlyComic } from '../connection/funcion';
 import marvel from '../images/marvel.png';
 import '../stylesheets/Comic.css';
+import CreatorCard from './CreatorCard.jsx';
 
 function Comic (){
 
@@ -17,7 +18,6 @@ function Comic (){
     getOnlyComic(setComic, params.id);
   },[]);
 
-
   return(
     <div className='container__comicInfo'>
 
@@ -26,17 +26,17 @@ function Comic (){
       </header>
 
       {
-        comic !== null
+        comic !== null 
         ?
-          comic.map(comicI =>(
-            <div key={comicI.id}>
+          (
+            <div key={comic.id}>
               <section className='container__comic-titleDescription'>
-                <img src={`${comicI.thumbnail.path}.${comicI.thumbnail.extension}`} alt='Poster del comic' className='poster-comic' />
+                <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt='Poster del comic' className='poster-comic' />
                 <div className='texts-comic'>
-                  <h1 className='title-comic'>{comicI.title}</h1>
+                  <h1 className='title-comic'>{comic.title}</h1>
                   {
-                    comicI.description !== '' 
-                    ? <p className='description-comic'>{comicI.description}</p>
+                    comic.description !== '' 
+                    ? <p className='description-comic'>{comic.description}</p>
                     : <p className='description-comic'>No hay descripción del comic</p>
                   }
                   
@@ -44,17 +44,30 @@ function Comic (){
               </section>
 
               <section className='container__comic-creators'>
-
+                  <h2 className='creators-title'>Creadores</h2>
+                  <div className='creators-containerInfo'>
+                    {
+                      //http://gateway.marvel.com/v1/public/creators/ = 45 caracteres
+                      comic.creators.items.map(comicI =>(
+                        <CreatorCard
+                          key={parseInt(comicI.resourceURI.substr(45))} 
+                          name={comicI.name} role={comicI.role} 
+                        />
+                      ))
+                    }
+                    
+                  </div>
               </section>
 
               <section className='container__comic-characters'>
 
               </section>
             </div>
-          ))
+          )
         :
-          console.log('Aun no carga la informacion del comic')
+          ('no hay comic')
       }
+
 
     </div>
   );
