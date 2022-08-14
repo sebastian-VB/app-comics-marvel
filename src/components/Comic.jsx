@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getOnlyComic } from '../connection/funcion';
 import marvel from '../images/marvel.png';
 import '../stylesheets/Comic.css';
+import CharacterCard from './CharacterCard';
 import CreatorCard from './CreatorCard.jsx';
 
 function Comic (){
@@ -44,23 +45,34 @@ function Comic (){
               </section>
 
               <section className='container__comic-creators'>
-                  <h2 className='creators-title'>Creadores</h2>
-                  <div className='creators-containerInfo'>
-                    {
-                      //http://gateway.marvel.com/v1/public/creators/ = 45 caracteres
-                      comic.creators.items.map(comicI =>(
-                        <CreatorCard
-                          key={parseInt(comicI.resourceURI.substr(45))} 
-                          name={comicI.name} role={comicI.role} 
-                        />
-                      ))
-                    }
-                    
-                  </div>
+                <h2 className='main-title'>Creadores</h2>
+                <div className='containerInfo'>
+                  {
+                    //http://gateway.marvel.com/v1/public/creators/ = 45 caracteres
+                    comic.creators.items.map(comicI =>(
+                      <CreatorCard
+                        key={parseInt(comicI.resourceURI.substr(45))} 
+                        name={comicI.name} role={comicI.role} 
+                      />
+                    ))
+                  }
+                  
+                </div>
               </section>
 
               <section className='container__comic-characters'>
-
+                <h2 className='main-title'>Creadores</h2>
+                <div className='containerInfo'>
+                  {
+                    //http://gateway.marvel.com/v1/public/characters/ = 48 caracteres
+                    comic.characters.items.map(comicI =>(
+                      <CharacterCard 
+                      key={parseInt(comicI.resourceURI.substr(48))}
+                      name={comicI.name}
+                      />
+                    ))
+                  }
+                </div>
               </section>
             </div>
           )
