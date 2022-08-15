@@ -61,16 +61,21 @@ function Comic (){
               </section>
 
               <section className='container__comic-characters'>
-                <h2 className='main-title'>Creadores</h2>
+                <h2 className='main-title'>Personajes</h2>
                 <div className='containerInfo'>
                   {
                     //http://gateway.marvel.com/v1/public/characters/ = 48 caracteres
-                    comic.characters.items.map(comicI =>(
-                      <CharacterCard 
-                      key={parseInt(comicI.resourceURI.substr(48))}
-                      name={comicI.name}
-                      />
-                    ))
+                    comic.characters.items.map(comicI => {
+                      let idCh = parseInt(comicI.resourceURI.substr(47));
+                      // console.log(idCh);
+                      return(
+                        <CharacterCard 
+                          key={parseInt(comicI.resourceURI.substr(47))}
+                          id={idCh}
+                        />
+                      );
+                      
+                    })
                   }
                 </div>
               </section>

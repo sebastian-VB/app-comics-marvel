@@ -14,11 +14,13 @@
   width: 230px;
   height: 300px;
   background-color: black;
+  color: #fff;
 }
 
 .character-name{
   font-weight: 700;
   font-size: 20px;
+  text-align: center;
 }
 
 

@@ -15,9 +15,18 @@ const getOnlyComic = async(state, idComic)=>{
   state(request.data.data.results[0]);
 }
 
+const getOnlyCharacter = async(state, idCharacter)=>{
+  // console.log('getOnlyChEntrada');
+  const request = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${idCharacter}?ts=1&apikey=1996c6f8bed5d198afa59705491619cf&hash=2cb3d41f48eda3326873c334d2e6a6bb`);
+  // console.log('getOnlyChSalida');
+  // console.log(request.data.data.results[0]);
+  state(request.data.data.results[0]);
+}
+
 
 
 export{
   getAllCommits,
-  getOnlyComic
+  getOnlyComic,
+  getOnlyCharacter
 }

@@ -1,13 +1,32 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../stylesheets/CharacterCard.css';
+import { getOnlyCharacter } from '../connection/funcion';
 
-function CharacterCard ({ name }){
+function CharacterCard ({ id }){
+
+  const [character, setCharacter] = useState(null);
+  
+  useEffect(()=>{
+    getOnlyCharacter(setCharacter, id);
+  },[])
+
 
   return(
     <div className='container__character'>
-      <div className='character-img'></div>
-      <p className='character-name'>{name}</p>
+      {
+        character !== null
+        ?
+          (
+            <div>
+              <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt='Poster del comic' className='character-img' />
+              <p className='character-name'>{character.name}</p>
+            </div>
+          )
+        :
+          ('no hay personajes')
+      }
+      
     </div>
   );
 }
